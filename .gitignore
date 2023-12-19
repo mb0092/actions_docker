@@ -1,0 +1,20 @@
+# This is a .gitignore file
+#files
+.classpath
+.project
+#folders
+venv/
+.git/
+.settings/
+build/
+src/
+Downloads/
+home/
+#local
+context.xml
+docker-compose.yml
+Dockerfile
+Downloads/
+satcon.war
+server.xml
+tomcat-users.xml
