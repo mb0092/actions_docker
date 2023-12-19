@@ -13,9 +13,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set working directory
-      run: cd /home/miro/actions-satcon
+      run: cd /home/miro/docker-tomcat
     - name: Stop old satcon
-      run: bash stop_satcon.sh
+      run: bash /home/miro/docker-tomcat/stop_satcon.sh
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag satcon
     - name: Run the containers with satcon
