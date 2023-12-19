@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Satcon</title>
+		<style id="aby-style">
+			h1 {text-align: center;}
+			h2 {text-align: center;}
+			h3 {text-align: center;}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1>Satcon Application</h1>
+			<h2>Continuous Deployment</h2>
+			<h3>Tomcat on Docker</h3>
+		</div>
+	</body>
+</html>
