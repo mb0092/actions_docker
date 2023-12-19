@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "mastermind" ]
+  pull_request:
+    branches: [ "mastermind" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Stop old satcon
+      run: docker stop $(docker ps -a | grep satcon | awk '{print substr ($0, 0, 12)}')
+    - name: Remove old satcon  
+      run: docker rm $(docker ps -a | grep satcon | awk '{print substr ($0, 0, 12)}')
+    - name: Remove old image satcon
+      run: docker image rm satcon
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag satcon
+    - name: Run the containers with satcon
+      run: docker run -d -p 80:8080 satcon
