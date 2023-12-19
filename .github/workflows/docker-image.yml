@@ -2,9 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "mastermind" ]
-  pull_request:
-    branches: [ "mastermind" ]
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
@@ -17,6 +15,8 @@ jobs:
     - name: Stop old satcon
       run: bash /home/miro/docker-tomcat/stop_satcon.sh
     - name: Build the Docker image
+      if: always()
       run: docker build . --file Dockerfile --tag satcon
     - name: Run the containers with satcon
+      if: always
       run: docker run -d -p 80:8080 satcon
