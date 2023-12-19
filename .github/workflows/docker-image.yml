@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build_satcon_app:
     runs-on: satcon
     steps:
     - uses: actions/checkout@v3
@@ -15,8 +15,8 @@ jobs:
     - name: Stop old satcon
       run: bash /home/miro/docker-tomcat/stop_satcon.sh
     - name: Build the Docker image
-      if: always()
+      if: success() || failure()
       run: docker build . --file Dockerfile --tag satcon
     - name: Run the containers with satcon
-      if: always()
+      if: success() || failure()
       run: docker run -d -p 80:8080 satcon
