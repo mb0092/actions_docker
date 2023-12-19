@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: Linux
+    runs-on: satcon
     steps:
     - uses: actions/checkout@v3
     - name: Stop old satcon
