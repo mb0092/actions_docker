@@ -11,10 +11,4 @@ src/
 Downloads/
 home/
 #local
-context.xml
-docker-compose.yml
-Dockerfile
-Downloads/
-satcon.war
-server.xml
-tomcat-users.xml
+
