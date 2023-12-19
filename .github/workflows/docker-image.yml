@@ -12,6 +12,8 @@ jobs:
     runs-on: satcon
     steps:
     - uses: actions/checkout@v3
+    - name: Set working directory
+      run: cd /home/miro/actions-satcon
     - name: Stop old satcon
       run: bash stop_satcon.sh
     - name: Build the Docker image
