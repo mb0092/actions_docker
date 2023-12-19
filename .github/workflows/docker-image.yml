@@ -9,15 +9,11 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
     - uses: actions/checkout@v3
     - name: Stop old satcon
-      run: docker stop $(docker ps -a | grep satcon | awk '{print substr ($0, 0, 12)}')
-    - name: Remove old satcon  
-      run: docker rm $(docker ps -a | grep satcon | awk '{print substr ($0, 0, 12)}')
-    - name: Remove old image satcon
-      run: docker image rm satcon
+      run: bash stop_satcon.sh
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag satcon
     - name: Run the containers with satcon
